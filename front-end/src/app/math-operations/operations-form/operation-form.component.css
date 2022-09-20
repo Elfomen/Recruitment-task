@@ -1,0 +1,60 @@
+
+
+form{
+    height: 450px;
+    overflow-y: auto;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.display-flex{
+    display: flex;
+    align-items: center;
+}
+
+.solution-container{
+    flex: 1;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.644);
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.solution-container > div > input{
+    color: wheat;
+}
+
+#final-result-container > input{
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+.form-group{
+    flex: 1;
+}
+
+.grey-colors{
+    color: grey;
+}
+
+select{
+    display: block;
+    
+}
+
+.unitMeasurementSelector > select{
+    background-color: transparent;
+    border-color: rgba(0, 0, 0, 0.452);
+    cursor: pointer;
+}
+
+#final-result-container > select {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.432);
+    color: white;
+    margin: 12px;
+    cursor: pointer;
+}

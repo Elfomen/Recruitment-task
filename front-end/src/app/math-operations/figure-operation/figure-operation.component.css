@@ -1,0 +1,22 @@
+select {
+    display: block;
+}
+
+.display-flex{
+    display: flex;
+    align-items: center;
+}
+
+.flex-one{
+    flex: 1;
+}
+
+.figureoperation > .figureoperation-nav > .image-container > img {
+    height: 100px;
+    width: 100px;
+}
+
+.figureoperation-body > .center > img{
+    width: 300px;
+    height: 200px;
+}

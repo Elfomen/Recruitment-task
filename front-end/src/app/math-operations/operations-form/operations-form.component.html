@@ -1,0 +1,93 @@
+<div class="display-flex">
+    <form action="" #operationForm="ngForm" (ngSubmit)="handleFormSubmition()">
+
+        <div class="form-group">
+            <div *ngIf="figure.type == 'circle'" class="radius">
+                <label for="name">Enter the radius</label>
+                <input type="number" class="form-control" id="name" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$" [(ngModel)]="model"
+                    name="name" #name="ngModel">
+
+                <div [hidden]="name.valid || name.pristine">
+                    You need to enter a valid radius (example: 0.8)
+                </div>
+            </div>
+
+            <div *ngIf="figure.type != 'circle'" class="len">
+                <div *ngIf="figure.type!='square'">
+                    <label for="length">Enter the length</label>
+                    <input type="number" class="form-control" id="length" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$"
+                        [(ngModel)]="len" name="length" #length="ngModel">
+
+                    <div [hidden]="length.valid || length.pristine">
+                        Please enter a valid length to continue
+                    </div>
+                </div>
+
+
+                <label *ngIf="figure.type == 'square'" for="width">Enter the length of one side (in meters)</label>
+                <label *ngIf="figure.type != 'square'" for="width">Enter the width (in meters)</label>
+                <input type="number" class="form-control" id="width" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$" [(ngModel)]="wid"
+                    name="width" #name="ngModel">
+
+                <div [hidden]="name.valid || name.pristine">
+                    Please enter a valid width to continue
+                </div>
+            </div>
+
+            <div *ngIf="figure.type!='circle'" class="unitMeasurementSelector">
+                <label for="length">Choose the unit of measurement (default meter (m))</label>
+                <select [(ngModel)]="unitOfMeasurement" id="unitM" name="unitM" #unitM (change)="setConversionPosibilities($event)"> 
+                    <option *ngFor="let item of conversionUnits" [value]="item">{{item}}</option>
+                </select>
+            </div>
+
+            <label for="name">The value of PI used</label>
+            <input type="number" value="3.14" readonly class="form-control grey-colors" id="name"
+                pattern="^[0-9]{1,10}$">
+
+            <label for="name">Formular used</label>
+            <input type="text" value="{{operation=='area' ? figure.areaFormular : figure.perimeterFormular}}" readonly
+                class="form-control grey-colors" id="name" pattern="^[0-9]{1,10}$">
+
+            <div class="divider"></div>
+            <div class="section center">
+                <button type="submit" class="waves-effect waves-light btn" [disabled]="!operationForm.form.valid">
+                    Calculate</button>
+            </div>
+        </div>
+
+        <div class="solution-container">
+            <span>Solution</span>
+            
+            <div>
+                <input type="text" class="form-control" id="solutionD"
+                    [(ngModel)]="solutionDescription" name="solutionD" #solutionD="ngModel" readonly>
+            </div>
+
+            <div>
+                <input type="text" class="form-control" id="operationR"
+                    [(ngModel)]="operationResult" name="operationR" #operationR="ngModel" readonly>
+            </div>
+
+            <div id="final-result-container" class="display-flex">
+                <input type="text" class="form-control" id="finalR"
+                    [(ngModel)]="finalResult" name="finalR" #finalR="ngModel" readonly>
+
+                <select [(ngModel)]="conversion" #conv id="conv" name="conv" (change)="convertResult($event)">
+                    <option  *ngFor="let item of conversionPosibilities" [value]="item">{{item}}</option>
+                </select>
+            </div>
+
+            <span class="explanation">
+                {{figure.perimeterDescription}}
+
+                {{figure.areaDescription}}
+            </span>
+
+            
+    
+        </div>
+    </form>
+
+    
+</div>

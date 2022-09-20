@@ -1,0 +1,21 @@
+<div class="container">
+    <span>Please Select a geometric figure below to get started</span>
+    <br>
+    <br><br>
+    <div class="row">
+        <div *ngFor="let figure of figureList" class="col l3 m4 s6">
+            <div class="card horizontal" title="Rectangle operations" (click)="goToFigureOperation(figure)">
+                <div class="card-image">
+                    <img [src]="figure.imageUrl" alt="">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{figure.type}}</p>
+                        <p><small>{{figure.description}}</small></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+#app-navbar{
+    padding: 5px;
+    background-color: #009688;
+}
+
+#app-navbar > div > .actions{
+    display: flex;
+    align-items: center;
+}
+#app-navbar > div > .actions > select{
+    display: flex;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+#app-navbar > div > .actions > a{
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.logoandinfo-container{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.logoandinfo-container > .logo-container > img{
+    width: 60;
+    height: 60px;
+    margin-right: 20px;
+}

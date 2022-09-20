@@ -1,0 +1,25 @@
+<div *ngIf="figure" class="container figureoperation">
+    <div class="figureoperation-nav display-flex">
+        <div class="image-container flex-one">
+            <img [src]="figure.imageUrl" alt="">
+        </div>
+        
+        <div class="choose-operation">
+            <p>Calculate:</p>
+            <select name="" id="" #input (change)="selectOperation($event)">
+                <option value="perimeter">Perimeter</option>
+                <option value="area">Area</option>
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="figureoperation-body">
+        <div class="center">
+            <img [src]="figure.imageUrl" alt="">
+        </div>
+    </div>
+    <br>
+
+    <app-operations-form [figure]=figure [operation]="input.value"></app-operations-form>
+</div>
