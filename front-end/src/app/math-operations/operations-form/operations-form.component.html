@@ -4,7 +4,7 @@
         <div class="form-group">
             <div *ngIf="figure.type == 'circle'" class="radius">
                 <label for="name">Enter the radius</label>
-                <input type="number" class="form-control" id="name" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$" [(ngModel)]="model"
+                <input type="number" class="form-control" id="name" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$" [(ngModel)]="radius"
                     name="name" #name="ngModel">
 
                 <div [hidden]="name.valid || name.pristine">
@@ -14,7 +14,7 @@
 
             <div *ngIf="figure.type != 'circle'" class="len">
                 <div *ngIf="figure.type!='square'">
-                    <label for="length">Enter the length</label>
+                    <label for="length">Enter the length in ({{unitOfMeasurement}})</label>
                     <input type="number" class="form-control" id="length" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$"
                         [(ngModel)]="len" name="length" #length="ngModel">
 
@@ -25,7 +25,7 @@
 
 
                 <label *ngIf="figure.type == 'square'" for="width">Enter the length of one side (in meters)</label>
-                <label *ngIf="figure.type != 'square'" for="width">Enter the width (in meters)</label>
+                <label *ngIf="figure.type != 'square'" for="width">Enter the width in ({{unitOfMeasurement}})</label>
                 <input type="number" class="form-control" id="width" required pattern="^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]+\.[0-9]*[1-9][0-9]*)$" [(ngModel)]="wid"
                     name="width" #name="ngModel">
 
