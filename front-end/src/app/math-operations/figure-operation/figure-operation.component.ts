@@ -14,16 +14,22 @@ export class FigureOperationComponent implements OnInit {
 
   figure: Figure | undefined;
 
+  figures: Figure[]
+
   constructor(private route: ActivatedRoute , private mathOperationService: MathOperationService) { }
 
   
 
   ngOnInit(): void {
-    const figureId: string | null = this.route.snapshot.paramMap.get("id")
+    this.mathOperationService.getFigures().then(figuress => {
+      this.figures = figuress
+      const figureId: string | null = this.route.snapshot.paramMap.get("id")
 
-    if(figureId){
-      this.figure = this.mathOperationService.getFigureById(figureId)
-    }
+      if(figureId){
+        this.figure = this.mathOperationService.getFigureById(figureId , this.figures)
+      }
+    })
+    
   }
 
 

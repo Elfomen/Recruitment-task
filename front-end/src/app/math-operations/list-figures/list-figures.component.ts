@@ -15,12 +15,17 @@ import { Figure } from '../models/figureModel';
 })
 export class ListFiguresComponent implements OnInit {
 
-  figureList: Figure[];
+  figureList: Figure[] | void;
 
   constructor(private mathOperationService: MathOperationService , private router: Router) { }
 
   ngOnInit(): void {
-    this.figureList = this.mathOperationService.getFigures()
+    this.mathOperationService.getFigures().then(result => {
+      this.figureList= result
+    }).catch(err => {
+      this.figureList = []
+    })
+    console.log(this.figureList)
   }
 
   goToFigureOperation(figure: Figure){

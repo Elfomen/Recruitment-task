@@ -51,10 +51,16 @@ select{
     cursor: pointer;
 }
 
+
 #final-result-container > select {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.432);
     color: white;
     margin: 12px;
     cursor: pointer;
+}
+
+.error-message{
+    color: red;
+    font-size: small;
 }

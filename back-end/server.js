@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000
 
 const app = express()
 
+// using cors to prevent request from been blocked by the browser
 app.use(cors())
 
 app.use('/' , Api)

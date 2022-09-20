@@ -55,9 +55,15 @@ export class OperationsFormComponent implements OnInit {
   // this is going to return the list of all units
   conversionUnits: string[]
 
+  // all the units of measurement from the database
+  units: Unit[]
+
   constructor(private mathOperationService: MathOperationService) { }
 
   ngOnInit(): void {
+    this.mathOperationService.getConvertionUnits().then(unitss => {
+      this.units = unitss
+    })
     this.conversionPosibilities = ['meter' , 'centimeter' , 'kilometer' , 'decimeter'] // by default, the conversion posibilities in meter
     this.conversionUnits = this.mathOperationService.getAllUnits()
   }
@@ -83,9 +89,10 @@ export class OperationsFormComponent implements OnInit {
     const power = last == 'r' ? 1 : last == '²' ? 2 : 3 // we set the power with what we got above
     const from: string = this.unitOfMeasurement[this.unitOfMeasurement.length - 1]=='m' ? this.unitOfMeasurement : this.unitOfMeasurement.replace(this.unitOfMeasurement[this.unitOfMeasurement.length - 1] , '')
     const to: string = this.conversion[0] != 'm' ? `${this.conversion[0]}m` : this.conversion[0]
-    this.convertedResult = this.mathOperationService.convertUnit(to ,from , this.result , power)
+    this.convertedResult = this.mathOperationService.convertUnit(to ,from , this.result , power , this.units)
+
     // this.result = this.mathOperationService.convertUnit(to ,from , this.result , power)
-    console.log(from)
+
     this.setSolution(`${to}${power == 2 ? '²' : power==3 ? '³' : ''}`)
   }
 
