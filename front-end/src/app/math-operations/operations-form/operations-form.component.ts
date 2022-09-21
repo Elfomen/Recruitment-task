@@ -28,7 +28,7 @@ export class OperationsFormComponent implements OnInit {
   conversion:string = "meter"
 
   // the value of pi used
-  pi: number = 3.14569
+  pi: number = 3.14
 
   // the result of the calculated perimeter or radius
   result : number;
@@ -72,7 +72,7 @@ export class OperationsFormComponent implements OnInit {
     this.convertedResult = this.convertedResult == -1 ? this.result : this.convertedResult
     this.solutionDescription = `Figure : ${this.figure.type}`
     this.operationResult = `Operation : ${this.operation}`
-    this.finalResult = `Result : ${this.convertedResult} ${unit== undefined ? this.unitOfMeasurement : unit}`
+    this.finalResult = `Result : ${this.convertedResult } ${unit== undefined ? this.unitOfMeasurement : unit}`
     this.convertedResult = -1
   }
 
