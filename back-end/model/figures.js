@@ -39,7 +39,7 @@ const Figures = [ // this is the figure model, we consider it as our database si
         perimeterDescription: "The perimeter of a triangle can be calculated by adding the lengths of all the three sides of the triangle" ,
         areaDescription: "How to Find the Area and Perimeter of a Triangle? The area of a triangle can be calculated with the help of the formula: A = 1/2 (b × h). " ,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Pythagoras_similar_triangles.svg/330px-Pythagoras_similar_triangles.svg.png" , 
-        description: "Calculate the area or perimeter of a trangle."
+        description: "Calculate the perimeter or area of a triangle."
     }
 ]
 
